@@ -1,12 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import getThreeStudents from "./UseGetThreeStudents";
 
 import "./style.css";
 
 export const Persons = () => {
   const [threeStudants, setThreeStudants] = React.useState([]);
-  const LINK_API = "http://hp-api.herokuapp.com/api/characters/students";
+  const LINK_API = "https://hp-api.herokuapp.com/api/characters/students";
+  
   let students;
+  
 
   React.useEffect(() => {
     handleFetch(LINK_API);
