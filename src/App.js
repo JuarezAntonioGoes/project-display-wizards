@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Persons } from "./Persons";
+
+import Normalize from "react-normalize";
+import "./App.css";
+
+import ImageCoruja from "./assets/img/coruja.png";
+import "./assets/fonts/HARRYP__.TTF";
 
 function App() {
+  const containerInit = React.useRef(null);
+
+  const handleNext = (e) => {
+    containerInit.current.classList.add("active");
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
+      <Normalize />
+
+      <main ref={containerInit} className="container--intro pag-initial">
+        <h1 className="title--event">Torneio Tribruxo</h1>
+        <p className="introduction--event">
+          Clique no botão para <br /> encontrar os feiticeiros
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+        <button className="play--button" onClick={handleNext}>
+          Iniciar
+        </button>
+
+        <img src={ImageCoruja} alt="coruja" className="image--capa" />
+
+        <p className="signature">J.A Junior</p>
+      </main>
+
+      <Persons />
     </div>
   );
 }
